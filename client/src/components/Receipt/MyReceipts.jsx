@@ -41,7 +41,7 @@ const MyReceipts = () => {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-secondary"></div>
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-amber-500"></div>
       </div>
     );
   }
@@ -56,7 +56,7 @@ const MyReceipts = () => {
             <p className="text-gray-500 text-lg mb-4">You don't have any receipts yet.</p>
             <button
               onClick={() => navigate('/')}
-              className="bg-secondary hover:bg-yellow-600 text-white px-6 py-2 rounded-lg"
+              className="bg-amber-500 hover:bg-yellow-600 text-white px-6 py-2 rounded-lg"
             >
               Browse Movies
             </button>
@@ -80,14 +80,14 @@ const MyReceipts = () => {
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
-                      <h3 className="font-semibold text-secondary mb-1">Movie</h3>
+                      <h3 className="font-semibold text-amber-500 mb-1">Movie</h3>
                       <p className="text-gray-700">{receipt.movieTitle}</p>
                       <p className="text-gray-600 text-sm">
                         {formatDate(receipt.showDate)} | {receipt.showTime}
                       </p>
                     </div>
                     <div>
-                      <h3 className="font-semibold text-secondary mb-1">Seats</h3>
+                      <h3 className="font-semibold text-amber-500 mb-1">Seats</h3>
                       <div className="flex flex-wrap gap-2">
                         {receipt.seats.map((seat, index) => (
                           <span key={index} className="bg-gray-100 px-2 py-1 rounded-full text-xs">
@@ -100,14 +100,14 @@ const MyReceipts = () => {
                   
                   <div className="flex justify-between items-center border-t border-gray-200 pt-4">
                     <span className="text-gray-700">Total Amount:</span>
-                    <span className="text-lg font-bold text-secondary">₹{receipt.totalAmount}</span>
+                    <span className="text-lg font-bold text-amber-500">₹{receipt.totalAmount}</span>
                   </div>
                 </div>
                 
                 <div className="bg-gray-50 px-6 py-3 flex justify-end">
                   <button
                     onClick={() => navigate(`/receipt/${receipt._id}`)}
-                    className="text-secondary hover:text-yellow-600 font-medium"
+                    className="text-amber-500 hover:text-yellow-600 font-medium"
                   >
                     View Details
                   </button>

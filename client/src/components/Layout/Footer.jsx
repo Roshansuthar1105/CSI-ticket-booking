@@ -2,11 +2,11 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-primary text-white py-8 mt-12">
+    <footer className="bg-gray-800 text-white py-8 mt-12">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-bold text-secondary mb-4">MovieFlix</h3>
+            <h3 className="text-xl font-bold text-amber-500 mb-4">MovieFlix</h3>
             <p className="text-gray-300">
               Your ultimate destination for movie ticket booking. 
               Enjoy the best cinema experience with us.
@@ -16,10 +16,10 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-gray-300">
-              <li><a href="#" className="hover:text-secondary">About Us</a></li>
-              <li><a href="#" className="hover:text-secondary">Contact</a></li>
-              <li><a href="#" className="hover:text-secondary">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-secondary">Terms of Service</a></li>
+              <li><a href="#" className="hover:text-amber-500">About Us</a></li>
+              <li><a href="#" className="hover:text-amber-500">Contact</a></li>
+              <li><a href="#" className="hover:text-amber-500">Privacy Policy</a></li>
+              <li><a href="#" className="hover:text-amber-500">Terms of Service</a></li>
             </ul>
           </div>
           

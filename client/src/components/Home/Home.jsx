@@ -4,6 +4,19 @@ import API from '../../utils/api';
 import toast from 'react-hot-toast';
 
 const Home = () => {
+//   return (
+//     <div className="p-8 space-y-4">
+//       <div className="p-4 bg-gray-800 text-white">
+//         Should be -gray-800 (#1f2937)
+//       </div>
+//       <div className="p-4 bg-[#1f2937] text-white">
+//         Manual color (should match above)
+//       </div>
+//       <div className="p-4 bg-amber-500 text-white">
+//         Should be -amber-500 (#f59e0b)
+//       </div>
+//     </div>
+//   );
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -25,7 +38,7 @@ const Home = () => {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-secondary"></div>
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-amber-500"></div>
       </div>
     );
   }
@@ -33,10 +46,10 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="bg-primary text-white py-16">
+      <div className="bg-gray-800 text-white py-16">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">
-            Welcome to <span className="text-secondary">MovieFlix</span>
+            Welcome to <span className="text-amber-500">MovieFlix</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8">
             Your Ultimate Movie Booking Experience

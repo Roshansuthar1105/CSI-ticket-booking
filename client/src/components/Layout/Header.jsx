@@ -12,23 +12,23 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-primary bg-black text-white shadow-lg">
+    <header className="bg-gray-800 bg-black text-white shadow-lg">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <Link to="/" className="text-2xl font-bold text-secondary">
+          <Link to="/" className="text-2xl font-bold text-amber-500">
             MovieFlix
           </Link>
           
           <nav className="hidden md:flex space-x-6">
-            <Link to="/" className="hover:text-secondary transition-colors">
+            <Link to="/" className="hover:text-amber-500 transition-colors">
               Home
             </Link>
             {user && (
               <>
-                <Link to="/my-bookings" className="hover:text-secondary transition-colors">
+                <Link to="/my-bookings" className="hover:text-amber-500 transition-colors">
                   My Bookings
                 </Link>
-                <Link to="/my-receipts" className="hover:text-secondary transition-colors">
+                <Link to="/my-receipts" className="hover:text-amber-500 transition-colors">
                   My Receipts
                 </Link>
               </>
@@ -41,7 +41,7 @@ const Header = () => {
                 <span className="text-sm">Welcome, {user.name}</span>
                 <button
                   onClick={handleLogout}
-                  className="bg-secondary hover:bg-yellow-600 text-white px-4 py-2 rounded-lg transition-colors"
+                  className="bg-amber-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg transition-colors"
                 >
                   Logout
                 </button>
@@ -50,13 +50,13 @@ const Header = () => {
               <div className="flex space-x-2">
                 <Link
                   to="/login"
-                  className="bg-secondary hover:bg-yellow-600 text-white px-4 py-2 rounded-lg transition-colors"
+                  className="bg-amber-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg transition-colors"
                 >
                   Login
                 </Link>
                 <Link
                   to="/register"
-                  className="border border-secondary hover:bg-secondary text-secondary hover:text-white px-4 py-2 rounded-lg transition-colors"
+                  className="border border-amber-500 hover:bg-amber-500 text-amber-500 hover:text-white px-4 py-2 rounded-lg transition-colors"
                 >
                   Register
                 </Link>

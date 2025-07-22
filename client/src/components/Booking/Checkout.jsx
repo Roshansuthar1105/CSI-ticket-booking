@@ -51,7 +51,7 @@ const Checkout = () => {
 
   const handlePayment = () => {
     const options = {
-      key: process.env.RAZORPAY_KEY_ID,
+      key: import.meta.env.VITE_RAZORPAY_KEY_ID,
       amount: order.amount * 100,
       currency: 'INR',
       name: 'MovieFlix',
@@ -91,7 +91,7 @@ const Checkout = () => {
   if (loading || !order) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-secondary"></div>
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-amber-500"></div>
       </div>
     );
   }
@@ -104,7 +104,7 @@ const Checkout = () => {
           <p className="text-gray-600 mb-6">Your booking is confirmed.</p>
           <button
             onClick={() => navigate('/my-bookings')}
-            className="bg-secondary hover:bg-yellow-600 text-white px-6 py-2 rounded-lg"
+            className="bg-amber-500 hover:bg-yellow-600 text-white px-6 py-2 rounded-lg"
           >
             View My Bookings
           </button>
@@ -162,7 +162,7 @@ const Checkout = () => {
               </div>
               <div className="flex justify-between items-center mt-4 pt-4 border-t border-gray-200">
                 <span className="text-lg font-bold">Total Amount:</span>
-                <span className="text-xl font-bold text-secondary">₹{totalAmount}</span>
+                <span className="text-xl font-bold text-amber-500">₹{totalAmount}</span>
               </div>
             </div>
           </div>
@@ -172,12 +172,12 @@ const Checkout = () => {
             <h3 className="text-xl font-semibold mb-4">Payment Options</h3>
             
             <div className="space-y-4">
-              <div className="flex items-center space-x-4 p-4 border border-gray-200 rounded-lg cursor-pointer hover:border-secondary">
+              <div className="flex items-center space-x-4 p-4 border border-gray-200 rounded-lg cursor-pointer hover:border-amber-500">
                 <input
                   type="radio"
                   id="razorpay"
                   name="payment"
-                  className="h-5 w-5 text-secondary focus:ring-secondary"
+                  className="h-5 w-5 text-amber-500 focus:ring-amber-500"
                   defaultChecked
                 />
                 <label htmlFor="razorpay" className="flex-1 cursor-pointer">
@@ -207,7 +207,7 @@ const Checkout = () => {
             </button>
             <button
               onClick={handlePayment}
-              className="px-6 py-2 bg-secondary hover:bg-yellow-600 text-white rounded-lg"
+              className="px-6 py-2 bg-amber-500 hover:bg-yellow-600 text-white rounded-lg"
             >
               Proceed to Payment
             </button>

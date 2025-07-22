@@ -41,7 +41,7 @@ const Receipt = () => {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-secondary"></div>
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-amber-500"></div>
       </div>
     );
   }
@@ -53,7 +53,7 @@ const Receipt = () => {
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Receipt not found</h2>
           <button
             onClick={() => navigate('/')}
-            className="bg-secondary hover:bg-yellow-600 text-white px-6 py-2 rounded-lg"
+            className="bg-amber-500 hover:bg-yellow-600 text-white px-6 py-2 rounded-lg"
           >
             Back to Home
           </button>
@@ -67,7 +67,7 @@ const Receipt = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
           {/* Receipt Header */}
-          <div className="bg-primary text-white p-6 text-center">
+          <div className="bg-gray-800 text-white p-6 text-center">
             <h1 className="text-3xl font-bold mb-2">MovieFlix</h1>
             <p className="text-gray-300">Your Ultimate Movie Booking Experience</p>
           </div>
@@ -81,7 +81,7 @@ const Receipt = () => {
               </div>
               <div className="text-right">
                 <p className="text-gray-600">Date: {formatDate(receipt.createdAt)}</p>
-                <p className="text-gray-600">Status: <span className="text-accent font-medium">Confirmed</span></p>
+                <p className="text-gray-600">Status: <span className="text-emerald-500 font-medium">Confirmed</span></p>
               </div>
             </div>
 
@@ -128,7 +128,7 @@ const Receipt = () => {
               </div>
               <div className="flex justify-between items-center mt-4 pt-4 border-t border-gray-200">
                 <span className="text-lg font-bold">Total Amount:</span>
-                <span className="text-xl font-bold text-secondary">₹{receipt.totalAmount}</span>
+                <span className="text-xl font-bold text-amber-500">₹{receipt.totalAmount}</span>
               </div>
             </div>
           </div>
@@ -142,13 +142,13 @@ const Receipt = () => {
             <div className="flex justify-center space-x-4">
               <button
                 onClick={() => window.print()}
-                className="px-6 py-2 border border-secondary text-secondary rounded-lg hover:bg-secondary hover:text-white"
+                className="px-6 py-2 border border-amber-500 text-amber-500 rounded-lg hover:bg-amber-500 hover:text-white"
               >
                 Print Receipt
               </button>
               <button
                 onClick={() => navigate('/')}
-                className="px-6 py-2 bg-secondary hover:bg-yellow-600 text-white rounded-lg"
+                className="px-6 py-2 bg-amber-500 hover:bg-yellow-600 text-white rounded-lg"
               >
                 Back to Home
               </button>

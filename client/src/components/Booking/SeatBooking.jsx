@@ -34,6 +34,7 @@ const SeatBooking = () => {
       setShowTime(st);
     } catch (error) {
       toast.error(error.message);
+      console.log("error from bookings",error)
       navigate('/');
     } finally {
       setLoading(false);
@@ -77,7 +78,7 @@ const SeatBooking = () => {
   if (loading || !movie || !showTime) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-secondary"></div>
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-amber-500"></div>
       </div>
     );
   }
@@ -109,7 +110,7 @@ const SeatBooking = () => {
               <p className="text-gray-700">
                 <span className="font-semibold">Selected:</span> {selectedSeats.length} seat(s)
               </p>
-              <p className="text-xl font-bold text-secondary">
+              <p className="text-xl font-bold text-amber-500">
                 Total: ₹{selectedSeats.length * showTime.price}
               </p>
             </div>
@@ -141,7 +142,7 @@ const SeatBooking = () => {
                         disabled={isBooked}
                         className={`w-8 h-8 rounded-sm flex items-center justify-center text-xs font-medium
                           ${isBooked ? 'bg-gray-300 cursor-not-allowed' : 
-                            isSelected ? 'bg-secondary text-white' : 
+                            isSelected ? 'bg-amber-500 text-white' : 
                             'bg-gray-100 hover:bg-gray-200'}`}
                       >
                         {number}
@@ -159,7 +160,7 @@ const SeatBooking = () => {
                 <span className="text-sm">Available</span>
               </div>
               <div className="flex items-center">
-                <div className="w-4 h-4 bg-secondary rounded-sm mr-2"></div>
+                <div className="w-4 h-4 bg-amber-500 rounded-sm mr-2"></div>
                 <span className="text-sm">Selected</span>
               </div>
               <div className="flex items-center">
@@ -180,7 +181,7 @@ const SeatBooking = () => {
             <button
               onClick={handleProceed}
               disabled={selectedSeats.length === 0}
-              className="px-6 py-2 bg-secondary hover:bg-yellow-600 text-white rounded-lg disabled:bg-gray-400 disabled:cursor-not-allowed"
+              className="px-6 py-2 bg-amber-500 hover:bg-yellow-600 text-white rounded-lg disabled:bg-gray-400 disabled:cursor-not-allowed"
             >
               Proceed to Checkout
             </button>

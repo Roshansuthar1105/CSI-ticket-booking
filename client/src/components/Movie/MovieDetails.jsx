@@ -38,7 +38,7 @@ const MovieDetails = () => {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-secondary"></div>
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-amber-500"></div>
       </div>
     );
   }
@@ -50,7 +50,7 @@ const MovieDetails = () => {
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Movie not found</h2>
           <button
             onClick={() => navigate('/')}
-            className="bg-secondary hover:bg-yellow-600 text-white px-6 py-2 rounded-lg"
+            className="bg-amber-500 hover:bg-yellow-600 text-white px-6 py-2 rounded-lg"
           >
             Back to Home
           </button>
@@ -62,7 +62,7 @@ const MovieDetails = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Movie Header */}
-      <div className="bg-primary text-white">
+      <div className="bg-gray-800 text-white">
         <div className="container mx-auto px-4 py-12">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-1">
@@ -76,7 +76,7 @@ const MovieDetails = () => {
             <div className="lg:col-span-2">
               <h1 className="text-4xl font-bold mb-4">{movie.title}</h1>
               <div className="flex items-center space-x-4 mb-4">
-                <span className="bg-accent text-white px-3 py-1 rounded-full text-sm">
+                <span className="bg-emerald-500 text-white px-3 py-1 rounded-full text-sm">
                   ⭐ {movie.rating}
                 </span>
                 <span className="text-gray-300">{movie.duration}</span>
@@ -87,17 +87,17 @@ const MovieDetails = () => {
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                 <div>
-                  <h3 className="font-semibold text-secondary mb-2">Director</h3>
+                  <h3 className="font-semibold text-amber-500 mb-2">Director</h3>
                   <p className="text-gray-300">{movie.director}</p>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-secondary mb-2">Language</h3>
+                  <h3 className="font-semibold text-amber-500 mb-2">Language</h3>
                   <p className="text-gray-300">{movie.language}</p>
                 </div>
               </div>
               
               <div className="mb-6">
-                <h3 className="font-semibold text-secondary mb-2">Cast</h3>
+                <h3 className="font-semibold text-amber-500 mb-2">Cast</h3>
                 <p className="text-gray-300">{movie.cast?.join(', ')}</p>
               </div>
               
@@ -107,7 +107,7 @@ const MovieDetails = () => {
                     href={movie.trailer}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-secondary hover:bg-yellow-600 text-white px-6 py-2 rounded-lg inline-block"
+                    className="bg-amber-500 hover:bg-yellow-600 text-white px-6 py-2 rounded-lg inline-block"
                   >
                     Watch Trailer
                   </a>
@@ -143,13 +143,13 @@ const MovieDetails = () => {
                   <div className="mb-4">
                     <div className="flex justify-between items-center mb-2">
                       <span className="text-gray-600">Price:</span>
-                      <span className="text-secondary font-semibold text-lg">
+                      <span className="text-amber-500 font-semibold text-lg">
                         ₹{showTime.price}
                       </span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-gray-600">Available:</span>
-                      <span className="text-accent font-semibold">
+                      <span className="text-emerald-500 font-semibold">
                         {showTime.availableSeats} seats
                       </span>
                     </div>
@@ -158,7 +158,7 @@ const MovieDetails = () => {
                   <button
                     onClick={() => handleBooking(showTime._id)}
                     disabled={showTime.availableSeats === 0}
-                    className="w-full bg-secondary hover:bg-yellow-600 text-white px-4 py-2 rounded-lg font-medium transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
+                    className="w-full bg-amber-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg font-medium transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
                   >
                     {showTime.availableSeats === 0 ? 'Sold Out' : 'Book Tickets'}
                   </button>
