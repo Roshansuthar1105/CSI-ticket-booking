@@ -13,6 +13,7 @@ import Receipt from './components/Receipt/Receipt';
 import MyBookings from './components/Booking/MyBookings';
 import MyReceipts from './components/Receipt/MyReceipts';
 import About from './pages/About';
+import Contact from './pages/Contact';
 import { AuthProvider } from './context/AuthContext';
 
 const App = () => {
@@ -34,6 +35,7 @@ const App = () => {
               <Route path="/my-receipts" element={<MyReceipts />} />
               {/* Other pages */}
               <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
             </Routes>
           </main>
           <Footer />
