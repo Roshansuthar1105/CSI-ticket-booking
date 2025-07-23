@@ -104,7 +104,7 @@ const Header = () => {
 
   return (
     <>
-     <Toaster 
+     {/* <Toaster 
         toastOptions={{
           className: '',
           style: {
@@ -113,7 +113,7 @@ const Header = () => {
             padding: 0,
           },
         }} 
-      />
+      /> */}
     
     <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-gray-900/95 backdrop-blur-sm shadow-xl' : 'bg-gray-900'}`}>
       <div className="container mx-auto px-4">
