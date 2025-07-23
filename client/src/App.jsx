@@ -19,6 +19,7 @@ import TermsOfService from './pages/TermsOfService';
 import FAQ from './pages/FAQ';
 import Refund from './pages/RefundPolicy';
 import Career from './pages/Careers';
+import Blog from './pages/Blog';
 import { AuthProvider } from './context/AuthContext';
 
 const App = () => {
@@ -46,6 +47,7 @@ const App = () => {
               <Route path="/faq" element={<FAQ />} />
               <Route path="/refund" element={<Refund />} />
               <Route path="/careers" element={<Career />} />
+              <Route path="/blog" element={<Blog />} />
             </Routes>
           </main>
           <Footer />
