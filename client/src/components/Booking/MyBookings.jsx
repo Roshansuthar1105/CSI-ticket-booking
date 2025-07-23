@@ -26,7 +26,6 @@ const MyBookings = () => {
       setError(null);
       const response = await API.get('/bookings/my-bookings');
       setBookings(response.data.data);
-      console.log(response.data.data);
     } catch (err) {
       setError('Failed to fetch bookings');
       toast.error('Failed to fetch bookings');

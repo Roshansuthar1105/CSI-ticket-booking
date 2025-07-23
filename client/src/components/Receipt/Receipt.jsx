@@ -21,7 +21,6 @@ const Receipt = () => {
       const response = await API.get(`/receipts/my-receipts/${id}`);
       // const response = await fetch('/rece')
       setReceipt(response.data);
-      console.log(response.data);
       
     } catch (error) {
       toast.error('Failed to fetch receipt details');
