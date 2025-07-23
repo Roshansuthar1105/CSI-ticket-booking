@@ -2,14 +2,15 @@ import React, { useState, useEffect } from 'react';
 import MovieCard from './MovieCard';
 import API from '../../utils/api';
 import toast from 'react-hot-toast';
-import { FaSearch, FaStar, FaFilm, FaTicketAlt, FaUser } from 'react-icons/fa';
+import { FaSearch, FaStar, FaFilm, FaTicketAlt, FaUser, FaArrowRight } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredMovies, setFilteredMovies] = useState([]);
-
+  const viewmore = {};
   useEffect(() => {
     fetchMovies();
   }, []);
@@ -25,8 +26,9 @@ const Home = () => {
   const fetchMovies = async () => {
     try {
       const response = await API.get('/movies');
-      setMovies(response.data);
+      setMovies(response.data.slice(0, 5));
       setFilteredMovies(response.data);
+      console.log(response.data.slice(0, 5))
     } catch (error) {
       toast.error('Failed to fetch movies');
     } finally {
@@ -131,6 +133,42 @@ const Home = () => {
             {filteredMovies.map((movie) => (
               <MovieCard key={movie._id} movie={movie} />
             ))}
+            <div className="bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group border border-gray-700">
+              <div className="relative overflow-hidden h-64">
+                <img
+                  src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="View more movies"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = 'https://via.placeholder.com/300x450?text=No+Image';
+                  }}
+                />
+                <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                  <div className="text-center p-4">
+                    <FaFilm className="mx-auto text-5xl text-amber-400 mb-4" />
+                    <h3 className="text-2xl font-bold text-white">Explore More</h3>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-4 bg-gray-800">
+                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">
+                  Discover New Releases
+                </h3>
+                <p className="text-gray-300 text-sm mb-4">
+                  Browse our complete collection of movies across all genres
+                </p>
+
+                <Link
+                  to="/movies"
+                  className="flex items-center justify-center w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white py-3 rounded-lg font-medium transition-all duration-300 group mt-16"
+                >
+                  View All Movies
+                  <FaArrowRight className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+              </div>
+            </div>
           </div>
         )}
       </div>

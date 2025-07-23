@@ -8,7 +8,7 @@ const MovieCard = ({ movie }) => {
   };
 
   return (
-    <div className="bg-gray-600 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 hover:-translate-y-1 group">
+    <div className="bg-gray-800 border-gray-700 border-1 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 hover:-translate-y-1 group">
       <div className="relative overflow-hidden h-64">
         <img
           src={movie.image}
@@ -40,7 +40,7 @@ const MovieCard = ({ movie }) => {
         
         <Link
           to={`/movie/${movie._id}`}
-          className="block w-full bg-amber-500 hover:bg-amber-600 text-white text-center py-2 rounded-lg text-sm font-medium transition-colors"
+          className="flex items-center justify-center w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white py-3 rounded-lg font-medium transition-all duration-300 group"
         >
           View Details
         </Link>
