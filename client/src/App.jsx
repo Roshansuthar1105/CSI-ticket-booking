@@ -20,6 +20,7 @@ import FAQ from './pages/FAQ';
 import Refund from './pages/RefundPolicy';
 import Career from './pages/Careers';
 import Blog from './pages/Blog';
+import NotFound from './pages/NotFound';
 import { AuthProvider } from './context/AuthContext';
 
 const App = () => {
@@ -48,6 +49,8 @@ const App = () => {
               <Route path="/refund" element={<Refund />} />
               <Route path="/careers" element={<Career />} />
               <Route path="/blog" element={<Blog />} />
+              {/* 404 page for unknown pages  */}
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
           <Footer />
