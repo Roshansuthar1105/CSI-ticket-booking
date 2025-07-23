@@ -14,6 +14,7 @@ import MyBookings from './components/Booking/MyBookings';
 import MyReceipts from './components/Receipt/MyReceipts';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
 import { AuthProvider } from './context/AuthContext';
 
 const App = () => {
@@ -36,6 +37,7 @@ const App = () => {
               {/* Other pages */}
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/privacy" element={<PrivacyPolicy />} />
             </Routes>
           </main>
           <Footer />
