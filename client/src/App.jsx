@@ -12,6 +12,7 @@ import Checkout from './components/Booking/Checkout';
 import Receipt from './components/Receipt/Receipt';
 import MyBookings from './components/Booking/MyBookings';
 import MyReceipts from './components/Receipt/MyReceipts';
+import MovieFlixToaster from './components/Receipt/MovieFlixToaster';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import PrivacyPolicy from './pages/PrivacyPolicy';
@@ -55,6 +56,7 @@ const App = () => {
           </main>
           <Footer />
           <Toaster position="top-right" />
+          <MovieFlixToaster />
         </div>
       </AuthProvider>
     </Router>
