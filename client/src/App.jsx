@@ -12,6 +12,7 @@ import Checkout from './components/Booking/Checkout';
 import Receipt from './components/Receipt/Receipt';
 import MyBookings from './components/Booking/MyBookings';
 import MyReceipts from './components/Receipt/MyReceipts';
+import Movies from './pages/Movies';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import PrivacyPolicy from './pages/PrivacyPolicy';
@@ -32,6 +33,7 @@ const App = () => {
           <main className="flex-grow">
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/movies" element={<Movies />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/movie/:id" element={<MovieDetails />} />
