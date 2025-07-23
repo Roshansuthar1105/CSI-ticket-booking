@@ -12,6 +12,7 @@ import Checkout from './components/Booking/Checkout';
 import Receipt from './components/Receipt/Receipt';
 import MyBookings from './components/Booking/MyBookings';
 import MyReceipts from './components/Receipt/MyReceipts';
+import About from './pages/About';
 import { AuthProvider } from './context/AuthContext';
 
 const App = () => {
@@ -31,6 +32,8 @@ const App = () => {
               <Route path="/receipt/:id" element={<Receipt />} />
               <Route path="/my-bookings" element={<MyBookings />} />
               <Route path="/my-receipts" element={<MyReceipts />} />
+              {/* Other pages */}
+              <Route path="/about" element={<About />} />
             </Routes>
           </main>
           <Footer />
