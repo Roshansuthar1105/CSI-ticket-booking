@@ -24,7 +24,53 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+  const scrollPositionRef=useRef(0);
+  // Handle scroll locking
+  useEffect(() => {
+    const handleScrollLock = () => {
+      if (isMobileMenuOpen) {
+        // Save current scroll position
+        scrollPositionRef.current = window.scrollY;
+        
+        // Lock scrolling
+        document.body.style.overflow = 'hidden';
+        document.body.style.position = 'fixed';
+        document.body.style.width = '100%';
+        document.body.style.top = `-${scrollPositionRef.current}px`;
+      } else {
+        // Unlock scrolling
+        document.body.style.overflow = '';
+        document.body.style.position = '';
+        document.body.style.width = '';
+        document.body.style.top = '';
+        
+        // Restore scroll position
+        window.scrollTo(0, scrollPositionRef.current);
+      }
+    };
 
+    handleScrollLock();
+
+    return () => {
+      // Cleanup on unmount
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+      document.body.style.top = '';
+    };
+  }, [isMobileMenuOpen]);
+  // useEffect(() => {
+  //   if (isMobileMenuOpen) {
+  //     document.body.classList.add('no-scroll');
+  //   } else {
+  //     document.body.classList.remove('no-scroll');
+  //   }
+
+  //   // Cleanup function
+  //   return () => {
+  //     document.body.classList.remove('no-scroll');
+  //   };
+  // }, [isMobileMenuOpen]);
   // const handleLogout = () => {
   //   logout();
   //   navigate('/');
@@ -115,7 +161,7 @@ const Header = () => {
         }} 
       /> */}
     
-    <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-gray-900/95 backdrop-blur-sm shadow-xl' : 'bg-gray-900'}`}>
+    <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-gray-900/95 backdrop-blur-sm shadow-xl' : 'bg-gray-900'} border-b-2 border-amber-500/80 `}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -238,16 +284,16 @@ const Header = () => {
         {/* Mobile Menu */}
         <div 
           ref={mobileMenuRef}
-          className={`md:hidden fixed inset-0 z-40 transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}
+          className={`md:hidden fixed inset-0 z-[1000] transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}
         >
           {/* Overlay */}
           <div 
-            className={`absolute inset-0 bg-black/50 transition-opacity ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0'}`}
+            className={`absolute inset-0 bg-black/80 transition-opacity ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0'}`}
             onClick={() => setIsMobileMenuOpen(false)}
           />
           
           {/* Menu Content */}
-          <div className={`absolute top-0 right-0 w-72 h-full bg-gray-800 shadow-2xl overflow-y-auto transition-transform duration-300 ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+          <div className={`absolute top-0 right-0 w-72 h-full bg-gray-800 shadow-2xl overflow-y-auto transition-transform duration-300 ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'} border-l-2 border-amber-500/80`}>
             <div className="p-4 pt-16">
               {user && (
                 <div className="flex items-center space-x-3 mb-4 p-3 bg-gray-700/50 rounded-lg">
@@ -259,7 +305,7 @@ const Header = () => {
                     )}
                   </div>
                   <div>
-                    <p className="font-medium">{user.name}</p>
+                    <p className="font-medium text-white">{user.name}</p>
                     <p className="text-xs text-gray-300">{user.email}</p>
                   </div>
                 </div>
