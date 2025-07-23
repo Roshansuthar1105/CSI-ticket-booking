@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import { FaBars, FaTimes, FaUser, FaTicketAlt, FaReceipt } from 'react-icons/fa';
+import { FaBars, FaTimes, FaUser, FaTicketAlt, FaReceipt, FaHome, FaFilm, FaInfoCircle, FaQuestionCircle, FaPhone } from 'react-icons/fa';
 
 const Header = () => {
   const { user, logout } = useAuth();
@@ -18,6 +18,10 @@ const Header = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  // Common link style
+  const navLinkStyle = "hover:text-amber-400 transition-colors duration-300 font-medium relative group flex items-center gap-2";
+  const underlineStyle = "absolute bottom-0 left-0 w-0 h-0.5 bg-amber-400 group-hover:w-full transition-all duration-300";
+
   return (
     <header className="bg-gradient-to-r from-gray-900 to-gray-800 text-white shadow-xl sticky top-0 z-50">
       <div className="container mx-auto px-4 py-3">
@@ -31,32 +35,42 @@ const Header = () => {
           </Link>
           
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link 
-              to="/" 
-              className="hover:text-amber-400 transition-colors duration-300 font-medium relative group"
-            >
+          <nav className="hidden md:flex items-center space-x-6">
+            <Link to="/" className={navLinkStyle}>
+              <FaHome className="text-base" />
               Home
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-400 group-hover:w-full transition-all duration-300"></span>
+              <span className={underlineStyle}></span>
+            </Link>
+            
+            <Link to="/movies" className={navLinkStyle}>
+              <FaFilm className="text-base" />
+              Movies
+              <span className={underlineStyle}></span>
+            </Link>
+            
+            <Link to="/about" className={navLinkStyle}>
+              <FaInfoCircle className="text-base" />
+              About
+              <span className={underlineStyle}></span>
+            </Link>
+            
+            <Link to="/contact" className={navLinkStyle}>
+              <FaPhone className="text-base" />
+              Contact
+              <span className={underlineStyle}></span>
             </Link>
             
             {user && (
               <>
-                <Link 
-                  to="/my-bookings" 
-                  className="hover:text-amber-400 transition-colors duration-300 font-medium relative group flex items-center gap-1"
-                >
-                  <FaTicketAlt className="text-sm" />
-                  My Bookings
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-400 group-hover:w-full transition-all duration-300"></span>
+                <Link to="/my-bookings" className={navLinkStyle}>
+                  <FaTicketAlt className="text-base" />
+                  Bookings
+                  <span className={underlineStyle}></span>
                 </Link>
-                <Link 
-                  to="/my-receipts" 
-                  className="hover:text-amber-400 transition-colors duration-300 font-medium relative group flex items-center gap-1"
-                >
-                  <FaReceipt className="text-sm" />
-                  My Receipts
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-400 group-hover:w-full transition-all duration-300"></span>
+                <Link to="/my-receipts" className={navLinkStyle}>
+                  <FaReceipt className="text-base" />
+                  Receipts
+                  <span className={underlineStyle}></span>
                 </Link>
               </>
             )}
@@ -112,36 +126,45 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-gray-800 rounded-lg mt-3 p-4 shadow-xl animate-fadeIn">
+          <div className="md:hidden bg-gray-800 rounded-lg mt-3 p-4 shadow-xl">
             <nav className="flex flex-col space-y-4">
-              <Link 
-                to="/" 
-                className="hover:text-amber-400 transition-colors duration-300 py-2 border-b border-gray-700"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
+              <Link to="/" className={navLinkStyle} onClick={() => setIsMobileMenuOpen(false)}>
+                <FaHome />
                 Home
+              </Link>
+              
+              <Link to="/movies" className={navLinkStyle} onClick={() => setIsMobileMenuOpen(false)}>
+                <FaFilm />
+                Movies
+              </Link>
+              
+              <Link to="/about" className={navLinkStyle} onClick={() => setIsMobileMenuOpen(false)}>
+                <FaInfoCircle />
+                About
+              </Link>
+              
+              <Link to="/contact" className={navLinkStyle} onClick={() => setIsMobileMenuOpen(false)}>
+                <FaPhone />
+                Contact
               </Link>
               
               {user && (
                 <>
-                  <Link 
-                    to="/my-bookings" 
-                    className="hover:text-amber-400 transition-colors duration-300 py-2 border-b border-gray-700 flex items-center gap-2"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
+                  <Link to="/my-bookings" className={navLinkStyle} onClick={() => setIsMobileMenuOpen(false)}>
                     <FaTicketAlt />
                     My Bookings
                   </Link>
-                  <Link 
-                    to="/my-receipts" 
-                    className="hover:text-amber-400 transition-colors duration-300 py-2 border-b border-gray-700 flex items-center gap-2"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
+                  <Link to="/my-receipts" className={navLinkStyle} onClick={() => setIsMobileMenuOpen(false)}>
                     <FaReceipt />
                     My Receipts
                   </Link>
                 </>
               )}
+              
+              <Link to="/faq" className={navLinkStyle} onClick={() => setIsMobileMenuOpen(false)}>
+                <FaQuestionCircle />
+                FAQ
+              </Link>
             </nav>
 
             <div className="mt-4 pt-4 border-t border-gray-700">
