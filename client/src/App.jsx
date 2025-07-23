@@ -17,6 +17,7 @@ import Contact from './pages/Contact';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import FAQ from './pages/FAQ';
+import Refund from './pages/RefundPolicy.jsx';
 import { AuthProvider } from './context/AuthContext';
 
 const App = () => {
@@ -42,6 +43,7 @@ const App = () => {
               <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/terms" element={<TermsOfService />} />
               <Route path="/faq" element={<FAQ />} />
+              <Route path="/refund" element={<Refund />} />
             </Routes>
           </main>
           <Footer />
