@@ -14,7 +14,8 @@ import MyBookings from './components/Booking/MyBookings';
 import MyReceipts from './components/Receipt/MyReceipts';
 import About from './pages/About';
 import Contact from './pages/Contact';
-import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService.jsx';
 import { AuthProvider } from './context/AuthContext';
 
 const App = () => {
@@ -38,6 +39,7 @@ const App = () => {
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
+              <Route path="/terms" element={<TermsOfService />} />
             </Routes>
           </main>
           <Footer />
