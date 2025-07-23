@@ -15,7 +15,8 @@ import MyReceipts from './components/Receipt/MyReceipts';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import PrivacyPolicy from './pages/PrivacyPolicy';
-import TermsOfService from './pages/TermsOfService.jsx';
+import TermsOfService from './pages/TermsOfService';
+import FAQ from './pages/FAQ';
 import { AuthProvider } from './context/AuthContext';
 
 const App = () => {
@@ -40,6 +41,7 @@ const App = () => {
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/terms" element={<TermsOfService />} />
+              <Route path="/faq" element={<FAQ />} />
             </Routes>
           </main>
           <Footer />
