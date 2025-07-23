@@ -28,7 +28,6 @@ const Home = () => {
       const response = await API.get('/movies');
       setMovies(response.data.slice(0, 5));
       setFilteredMovies(response.data);
-      console.log(response.data.slice(0, 5))
     } catch (error) {
       toast.error('Failed to fetch movies');
     } finally {
