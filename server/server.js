@@ -15,6 +15,7 @@ const app = express();
 // CORS Configuration
 const corsOptions = {
   origin: [
+    'https://themovieflixs.netlify.app',
     'https://movieflex-tickets.netlify.app', // Your Netlify frontend
     'http://localhost:3000', // For local development
     process.env.CLIENT_URL // From environment variables
